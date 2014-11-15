@@ -19,3 +19,20 @@ listtostring <- function(listinput) {
     }
     return(outstring)
 }
+
+
+dataframetostring <- function(dataframeinput) {
+    listoutput <- as.list.data.frame(dataframeinput)
+    outstring <- listtostring(listoutput)
+
+    outstring
+}
+
+
+string <- function(object) {
+    if (class(object) == "list") {
+        return(listtostring(object))
+    } else if (class(object) == "data.frame") {
+        return(dataframetostring(object))
+    }
+}
